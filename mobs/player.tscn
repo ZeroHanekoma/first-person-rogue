@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://xa8w8eqdqh13"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_mgsjv"]
+[ext_resource type="Texture2D" uid="uid://c3jl0ihalm04y" path="res://icon.svg" id="1_ugwl2"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_mgsjv")
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+fov = 90.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+visible = false
+texture = ExtResource("1_ugwl2")
+
+[node name="SouthRay" type="RayCast3D" parent="."]
+enabled = false
+target_position = Vector3(0, 0, 2)
+debug_shape_thickness = 4
+
+[node name="NorthRay" type="RayCast3D" parent="."]
+enabled = false
+target_position = Vector3(0, 0, -2)
+debug_shape_thickness = 4
+
+[node name="EastRay" type="RayCast3D" parent="."]
+enabled = false
+target_position = Vector3(2, 0, 0)
+debug_shape_thickness = 4
+
+[node name="WestRay" type="RayCast3D" parent="."]
+enabled = false
+target_position = Vector3(-2, 0, 0)
+debug_shape_thickness = 4
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 0.2

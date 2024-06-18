@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7k4qw6yd4gxc"]
+
+[ext_resource type="Script" path="res://scripts/RoomBase.gd" id="1_vlj8s"]
+[ext_resource type="Texture2D" uid="uid://dul4gcwu55m0b" path="res://addons/level_block/example_tileset.png" id="4_4to80"]
+
+[node name="RoomBase" type="Node3D"]
+script = ExtResource("1_vlj8s")
+texture_sheet = ExtResource("4_4to80")
