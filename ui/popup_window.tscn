@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://moh6urhcup2m"]
+
+[ext_resource type="Script" path="res://scripts/UI/popup_window.gd" id="1_o8but"]
+[ext_resource type="StyleBox" uid="uid://dajvqqlk0ma4n" path="res://ui/dev_panel_generic.tres" id="2_4plst"]
+
+[node name="PopupWindow" type="Control" node_paths=PackedStringArray("background_panel", "content_label", "close_button", "v_box_container")]
+top_level = true
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 640.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_o8but")
+background_panel = NodePath("Panel")
+content_label = NodePath("Panel/VBoxContainer/ContentLabel")
+close_button = NodePath("Panel/VBoxContainer/CenterContainer/CloseButton")
+v_box_container = NodePath("Panel/VBoxContainer")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 5
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_4plst")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -84.0
+offset_right = 304.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Panel/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Close"
