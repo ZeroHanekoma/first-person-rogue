@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4gnsl2iewwhq"]
+[gd_scene load_steps=5 format=3 uid="uid://c4gnsl2iewwhq"]
 
 [ext_resource type="Script" path="res://scripts/LevelControl.gd" id="1_r2obu"]
+[ext_resource type="Script" path="res://scripts/BaseLevel.gd" id="2_7dw70"]
+[ext_resource type="PackedScene" uid="uid://bpweg13dpkrm6" path="res://level/level_spawn_manager.tscn" id="3_3a8an"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gfgbb"]
 
 [node name="LevelControl" type="Node3D"]
 script = ExtResource("1_r2obu")
+
+[node name="BaseLevel" type="Node3D" parent="."]
+script = ExtResource("2_7dw70")
+
+[node name="EndGoal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 5, 20)
+
+[node name="Area3D" type="Area3D" parent="EndGoal"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndGoal/Area3D"]
+shape = SubResource("SphereShape3D_gfgbb")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="EndGoal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+light_energy = 0.25
+light_size = 1.0
+omni_range = 1.0
+
+[node name="Start_Room" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 5, 20)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Start_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0.733333, 0.823529, 1, 1)
+light_energy = 0.5
+light_size = 1.0
+omni_range = 1.0
+
+[node name="LevelSpawnManager" parent="." instance=ExtResource("3_3a8an")]
+
+[connection signal="body_entered" from="EndGoal/Area3D" to="." method="_on_area_3d_body_entered"]

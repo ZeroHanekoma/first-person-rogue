@@ -1,38 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://xa8w8eqdqh13"]
+[gd_scene load_steps=4 format=3 uid="uid://xa8w8eqdqh13"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_mgsjv"]
-[ext_resource type="Texture2D" uid="uid://c3jl0ihalm04y" path="res://icon.svg" id="1_ugwl2"]
+[ext_resource type="Script" path="res://scripts/Mobs/player.gd" id="1_ms7oq"]
+[ext_resource type="Environment" uid="uid://cjvxos8g1gtm4" path="res://level/world_enviroment.tres" id="2_y3juv"]
 
-[node name="Player" type="Node3D"]
-script = ExtResource("1_mgsjv")
+[sub_resource type="BoxShape3D" id="BoxShape3D_mse18"]
+
+[node name="Player" type="CharacterBody3D"]
+disable_mode = 1
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_ms7oq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mse18")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+environment = ExtResource("2_y3juv")
 fov = 90.0
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-visible = false
-texture = ExtResource("1_ugwl2")
-
 [node name="SouthRay" type="RayCast3D" parent="."]
-enabled = false
-target_position = Vector3(0, 0, 2)
+target_position = Vector3(0, 0, 1)
+collision_mask = 7
+debug_shape_custom_color = Color(0, 0, 0, 0)
 debug_shape_thickness = 4
 
 [node name="NorthRay" type="RayCast3D" parent="."]
-enabled = false
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -1)
+collision_mask = 7
+debug_shape_custom_color = Color(0, 0, 0, 0)
 debug_shape_thickness = 4
 
 [node name="EastRay" type="RayCast3D" parent="."]
-enabled = false
-target_position = Vector3(2, 0, 0)
+target_position = Vector3(1, 0, 0)
+collision_mask = 7
+debug_shape_custom_color = Color(0, 0, 0, 0)
 debug_shape_thickness = 4
 
 [node name="WestRay" type="RayCast3D" parent="."]
-enabled = false
-target_position = Vector3(-2, 0, 0)
+target_position = Vector3(-1, 0, 0)
+collision_mask = 7
+debug_shape_custom_color = Color(0, 0, 0, 0)
+debug_shape_thickness = 4
+
+[node name="ActionRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
+collision_mask = 8
 debug_shape_thickness = 4
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 0.2
+light_energy = 0.05
+shadow_enabled = true

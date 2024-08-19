@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://6fsyy5j8g4u2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_clu2f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4jtf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ayih"]
+albedo_color = Color(0, 0.482353, 0.482353, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clins"]
+albedo_color = Color(0, 0.759286, 0.50551, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x75s4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crxme"]
+albedo_color = Color(0.647059, 0.133333, 0.12549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snydj"]
+albedo_color = Color(0.745002, 0.581712, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hvlm"]
+albedo_color = Color(0.180392, 0.807843, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdxn8"]
+albedo_color = Color(0.761222, 0.156892, 0.555823, 1)
+
+[node name="DungeonTiles" type="Node3D"]
+
+[node name="RoomTile" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_s4jtf")
+
+[node name="HallwayTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_4ayih")
+
+[node name="DoorTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_clins")
+
+[node name="BorderTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_x75s4")
+
+[node name="BossTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_crxme")
+
+[node name="TreasureTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_snydj")
+
+[node name="EntranceTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_1hvlm")
+
+[node name="ExitTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+mesh = SubResource("BoxMesh_clu2f")
+surface_material_override/0 = SubResource("StandardMaterial3D_bdxn8")

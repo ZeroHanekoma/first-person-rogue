@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf6j0p32ea12f"]
+
+[ext_resource type="Script" path="res://dungeon generation/dun_gen.gd" id="1_1hwmk"]
+[ext_resource type="MeshLibrary" uid="uid://cup2fj847fgx0" path="res://dungeon generation/dungeon_rooms.tres" id="2_avs1k"]
+[ext_resource type="Script" path="res://dungeon generation/DunMesh.gd" id="3_i5oor"]
+
+[node name="DunGen" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_1hwmk")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_avs1k")
+cell_size = Vector3(1, 1, 1)
+
+[node name="DunMesh" type="Node3D" parent="."]
+script = ExtResource("3_i5oor")
+wall_texture = 1

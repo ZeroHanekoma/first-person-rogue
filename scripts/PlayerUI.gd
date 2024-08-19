@@ -5,6 +5,8 @@ class_name PlayerUI
 @onready var race_label = $GridContainer/VBoxContainer2/RaceLabel
 @onready var stats_label = $"GridContainer/VBoxContainer/Stats Label"
 @onready var dir_label = $GridContainer/VBoxContainer2/DirLabel
+@onready var turn_label = $GridContainer/VBoxContainer2/TurnLabel
+
 
 func update_name(player_name: String):
 	name_label.text = player_name
@@ -27,3 +29,6 @@ func update_dir_label(direction):
 			dir_label.text = "W"
 		_:
 			return
+
+func update_turn_label(turn_count : int):
+	turn_label.text = str("Turn: ", turn_count)
